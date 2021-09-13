@@ -38,8 +38,8 @@ form.addEventListener('submit', e => {
     a.toString().split('.')[1]?.length ?? 0,
     b.toString().split('.')[1]?.length ?? 0
   )
-  a *= Math.pow(10, places)
-  b *= Math.pow(10, places)
+  a *= 10 ** places
+  b *= 10 ** places
 
   const d = gcd(a, b)
   a /= d || 1
