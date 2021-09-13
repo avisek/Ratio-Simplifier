@@ -1,0 +1,264 @@
+:root {
+  --color-base: #fff;
+
+  --color-contrast-05: hsla(214, 61%, 25%, 0.05);
+  --color-contrast-10: hsla(214, 57%, 24%, 0.1);
+  --color-contrast-20: hsla(214, 53%, 23%, 0.16);
+  --color-contrast-30: hsla(214, 50%, 22%, 0.26);
+  --color-contrast-40: hsla(214, 47%, 21%, 0.38);
+  --color-contrast-50: hsla(214, 45%, 20%, 0.5);
+  --color-contrast-60: hsla(214, 43%, 19%, 0.61);
+  --color-contrast-70: hsla(214, 42%, 18%, 0.72);
+  --color-contrast-80: hsla(214, 41%, 17%, 0.83);
+  --color-contrast-90: hsla(214, 40%, 16%, 0.94);
+  --color-contrast: hsl(214, 35%, 15%);
+
+  --color-primary: hsl(214, 90%, 52%);
+  --color-primary-50: hsla(214, 90%, 52%, 0.5);
+  --color-primary-25: hsla(214, 90%, 52%, 0.25);
+  --color-primary-10: hsla(214, 90%, 52%, 0.1);
+  --color-primaryContrast: var(--color-base);
+
+  /* --color-success: hsl(145, 80%, 42%);
+  --color-success-25: hsla(145, 76%, 44%, 0.25);
+  --color-success-50: hsla(145, 76%, 44%, 0.55);
+  --color-success-10: hsla(145, 76%, 44%, 0.12);
+  --color-successContrast: hsla(145, 76%, 44%, 0.12); */
+  --color-success: hsl(145, 80%, 37%);
+  --color-success-25: hsla(145, 76%, 39%, 0.25);
+  --color-success-50: hsla(145, 76%, 39%, 0.55);
+  --color-success-10: hsla(145, 76%, 39%, 0.12);
+  --color-successContrast: hsla(145, 76%, 39%, 0.12);
+
+  --color-intent: var(--color-primary);
+  --color-intent-50: var(--color-primary-50);
+  --color-intent-25: var(--color-primary-25);
+  --color-intent-10: var(--color-primary-10);
+  --color-intentContrast: var(--color-base);
+
+  --border-radius: 1rem;
+
+  --box-shadow: 0 2px 6px -1px var(--color-contrast-20), 0 8px 24px -4px var(--color-contrast-40);
+}
+
+.intent-success {
+  --color-intent: var(--color-success);
+  --color-intent-50: var(--color-success-50);
+  --color-intent-25: var(--color-success-25);
+  --color-intent-10: var(--color-success-10);
+  --color-intentContrast: var(--color-base);
+}
+
+::-moz-selection {
+  background: var(--color-intent-25);
+}
+::selection {
+  background: var(--color-intent-25);
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+@media (min-width: 320px) {
+  html {
+    zoom: 1.25;
+    -moz-transform: scale(1.25);
+  }
+}
+@media (min-width: 400px) {
+  html {
+    zoom: 1.5;
+    -moz-transform: scale(1.5);
+  }
+}
+@media (min-width: 576px) {
+  html {
+    zoom: 1.75;
+    -moz-transform: scale(1.75);
+  }
+}
+@media (min-width: 768px) {
+  html {
+    zoom: 2;
+    -moz-transform: scale(2);
+  }
+}
+
+html, body {
+  display: grid;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: var(--color-contrast);
+  background: var(--color-contrast-10);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+form {
+  position: relative;
+  background: var(--color-base);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+input, button, span {
+  display: block;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: center;
+  padding: .75rem .75rem;
+  color: var(--color-contrast);
+  background-color: var(--color-base);
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+input:focus, button:focus {
+  box-shadow: inset 0 0 0 1px var(--color-intent), 0 0 0 4px var(--color-intent-25);
+  z-index: 1;
+}
+
+input {
+  position: relative;
+  width: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input:first-of-type {
+  padding-right: 0;
+  border-top-left-radius: var(--border-radius);
+}
+input:last-of-type {
+  padding-left: 0;
+  border-top-right-radius: var(--border-radius);
+}
+input:hover {
+  background-color: var(--color-contrast-05);
+}
+input:focus {
+  background-color: var(--color-base);
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  position: absolute;
+  -webkit-appearance: inner-spin-button !important;
+  right: 1px;
+  width: 15px;
+  height: 1.5rem;
+  margin: 0;
+  opacity: 0;
+  clip-path: inset(0 round 8px);
+  /* filter: brightness(1.1) invert(1) sepia(1) hue-rotate(0deg) invert(0.9) saturate(5); */
+  filter: brightness(1.1) invert(1) sepia(1) hue-rotate(0deg) brightness(0.8) invert(1) saturate(5);
+  mix-blend-mode: darken;
+}
+.intent-success input::-webkit-inner-spin-button,
+.intent-success input::-webkit-outer-spin-button {
+  filter: brightness(1.1) invert(1) sepia(1) hue-rotate(270deg) brightness(0.8) invert(1) saturate(5);
+}
+input:first-of-type::-webkit-inner-spin-button,
+input:first-of-type::-webkit-outer-spin-button {
+  left: 1px;
+}
+input:hover::-webkit-inner-spin-button,
+input:hover::-webkit-outer-spin-button {
+  opacity: 1;
+}
+@media (pointer: coarse) {
+  input::-webkit-inner-spin-button,
+  input::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+  }
+}
+
+button {
+  grid-column: 1 / -1;
+  margin-top: -1px;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  text-transform: none;
+  background: var(--color-intent);
+  color: var(--color-intentContrast);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-appearance: button;
+  position: relative;
+  overflow: hidden;
+}
+button::before, button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-intentContrast);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.2s;
+  /* will-change: opacity; */
+  pointer-events: none;
+}
+button::after {
+  margin: 0.5rem;
+  border-radius: 0;
+  box-shadow:
+    0 0  4px 0 var(--color-intentContrast),
+    0 0  8px 0 var(--color-intentContrast),
+    0 0 12px 0 var(--color-intentContrast),
+    0 0 16px 0 var(--color-intentContrast),
+    0 0 20px 0 var(--color-intentContrast),
+    0 0 24px 0 var(--color-intentContrast),
+    0 0 28px 0 var(--color-intentContrast),
+    0 0 32px 0 var(--color-intentContrast);
+  transition: opacity 1.4s, transform 0.15s;
+  opacity: 0.0001;
+  will-change: transform, opacity;
+}
+button:hover::before {
+  opacity: 0.075;
+}
+button:active::before {
+  opacity: 0.1;
+  transition-duration: 0s;
+  background-color: var(--color-contrast-20);
+}
+button:active::after {
+  opacity: 0.125;
+  transition-duration: 0s, 0s;
+  transform: scale(0);
+}
+button:disabled {
+  pointer-events: none;
+  background-color: rgb(219, 223, 229); /* opaque var(--color-contrast-30) */
+  color: var(--color-contrast-30);
+}
