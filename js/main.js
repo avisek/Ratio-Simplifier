@@ -42,8 +42,8 @@ form.addEventListener('submit', e => {
   b *= Math.pow(10, places)
 
   const d = gcd(a, b)
-  a /= d
-  b /= d
+  a /= d || 1
+  b /= d || 1
 
   inputA.valueAsNumber = a
   inputB.valueAsNumber = b
