@@ -13,9 +13,10 @@ form.addEventListener('input', e => {
 
   const a = inputA.valueAsNumber || 0
   const b = inputB.valueAsNumber || 0
-  const f = gcd(a, b)
+  const d = Math.abs(gcd(a, b))
+  console.log('GCD of %i and %i is %i', a, b, d)
 
-  if (!inputA.value || !inputB.value || f != 1) {
+  if (!inputA.value || !inputB.value || d != 1) {
     submit.disabled = false
     submit.innerText = "Simplify"
   } else {
@@ -30,11 +31,22 @@ form.addEventListener('submit', e => {
   if (!inputA.value) return inputA.focus()
   if (!inputB.value) return inputB.focus()
 
-  const a = inputA.valueAsNumber || 0
-  const b = inputB.valueAsNumber || 0
-  const f = gcd(a, b)
-  inputA.valueAsNumber = a / f
-  inputB.valueAsNumber = b / f
+  let a = inputA.valueAsNumber || 0
+  let b = inputB.valueAsNumber || 0
+
+  const places = Math.max(
+    a.toString().split('.')[1]?.length ?? 0,
+    b.toString().split('.')[1]?.length ?? 0
+  )
+  a *= Math.pow(10, places)
+  b *= Math.pow(10, places)
+
+  const d = Math.abs(gcd(a, b))
+  a /= d
+  b /= d
+
+  inputA.valueAsNumber = a
+  inputB.valueAsNumber = b
 
   form.classList.add('intent-success')
   submit.innerText = "Simplified"
