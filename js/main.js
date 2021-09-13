@@ -16,7 +16,7 @@ form.addEventListener('input', e => {
   const d = gcd(a, b)
   console.log('GCD of %i and %i is %i', a, b, d)
 
-  if (!inputA.value || !inputB.value || d != 1) {
+  if (!inputA.value || !inputB.value || d != 1 && (a || b)) {
     submit.disabled = false
     submit.innerText = "Simplify"
   } else {
