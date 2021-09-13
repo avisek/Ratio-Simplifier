@@ -1,5 +1,5 @@
 // Taken from https://stackoverflow.com/questions/17445231/js-how-to-find-the-greatest-common-divisor
-const gcd = (a, b) => !b ? a : gcd(b, a % b)
+const gcd = (a, b) => b ? gcd(b, a % b) : Math.abs(a)
 
 const $ = id => document.getElementById(id)
 
@@ -13,7 +13,7 @@ form.addEventListener('input', e => {
 
   const a = inputA.valueAsNumber || 0
   const b = inputB.valueAsNumber || 0
-  const d = Math.abs(gcd(a, b))
+  const d = gcd(a, b)
   console.log('GCD of %i and %i is %i', a, b, d)
 
   if (!inputA.value || !inputB.value || d != 1) {
@@ -41,7 +41,7 @@ form.addEventListener('submit', e => {
   a *= Math.pow(10, places)
   b *= Math.pow(10, places)
 
-  const d = Math.abs(gcd(a, b))
+  const d = gcd(a, b)
   a /= d
   b /= d
 
