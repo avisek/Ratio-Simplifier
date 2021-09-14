@@ -148,6 +148,7 @@ input {
   width: 5rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  caret-color: var(--color-intent);
   -moz-appearance: textfield;
   appearance: textfield;
 }
